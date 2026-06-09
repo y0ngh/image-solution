@@ -1,5 +1,12 @@
 # Change Log
 
+## 2026-06-10 00:26 KST
+
+- Backed up the affected content pages and `CHANGELOG.md` in `.backups/2026-06-10_0026/`.
+- Added practical usage instructions and implementation-specific limitations to the image, PDF, data, and receipt tool pages.
+- Added a format-conversion guide to the home page without changing the existing feature introduction layout.
+- Updated the site introduction to describe the currently available tools and Cloudflare Workers hosting accurately.
+
 ## 2026-06-10 00:24 KST
 
 - Backed up `privacy.html` and `CHANGELOG.md` in `.backups/2026-06-10_0024/`.
