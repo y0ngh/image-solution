@@ -1,5 +1,12 @@
 # Change Log
 
+## 2026-06-10 00:24 KST
+
+- Backed up `privacy.html` and `CHANGELOG.md` in `.backups/2026-06-10_0024/`.
+- Expanded the privacy policy with the site's actual Cloudflare Workers, jsDelivr, and GitHub Issues service relationships.
+- Added conditional Google AdSense cookie, identifier, personalized advertising opt-out, and consent-management disclosures.
+- Updated the privacy policy effective date to June 10, 2026.
+
 ## 2026-06-10 00:03 KST
 
 - Backed up `about.html` and `CHANGELOG.md` in `.backups/2026-06-10_0003/`.
