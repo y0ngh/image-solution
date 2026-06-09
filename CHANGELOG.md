@@ -1,5 +1,10 @@
 # Change Log
 
+## 2026-06-10 00:03 KST
+
+- Backed up `about.html` and `CHANGELOG.md` in `.backups/2026-06-10_0003/`.
+- Removed the future feature expansion sentence from the site introduction.
+
 ## 2026-06-09 23:50 KST
 
 - Backed up `index.html`, `assets/css/styles.css`, and `CHANGELOG.md` in `.backups/2026-06-09_2350/`.
