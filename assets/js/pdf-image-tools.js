@@ -1,6 +1,14 @@
-import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/build/pdf.mjs";
+const pdfJsUrl = "https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/build/pdf.mjs";
+const pdfWorkerUrl = "https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/build/pdf.worker.mjs";
+let pdfjsLib;
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/build/pdf.worker.mjs";
+async function loadPdfJs() {
+  if (!pdfjsLib) {
+    pdfjsLib = await import(pdfJsUrl);
+    pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
+  }
+  return pdfjsLib;
+}
 
 const imageFiles = document.getElementById("pdf-image-files");
 const buildPrintButton = document.getElementById("pdf-build-print");
@@ -48,22 +56,36 @@ renderButton.addEventListener("click", async function () {
     return;
   }
   downloads.innerHTML = "";
-  const buffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
-  const scale = Number(pdfScale.value) || 1.5;
-  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
-    const page = await pdf.getPage(pageNumber);
-    const viewport = page.getViewport({ scale: scale });
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.floor(viewport.width);
-    canvas.height = Math.floor(viewport.height);
-    await page.render({ canvasContext: canvas.getContext("2d"), viewport: viewport }).promise;
-    const url = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = file.name.replace(/\.pdf$/i, "") + "-page-" + pageNumber + ".png";
-    link.textContent = pageNumber + "페이지 PNG 다운로드";
-    downloads.appendChild(link);
+  renderButton.disabled = true;
+  renderStatus.textContent = "PDF를 불러오는 중입니다.";
+
+  try {
+    const library = await loadPdfJs();
+    const buffer = await file.arrayBuffer();
+    const pdf = await library.getDocument({ data: buffer }).promise;
+    const scale = Number(pdfScale.value) || 1.5;
+
+    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+      renderStatus.textContent = pageNumber + " / " + pdf.numPages + " 페이지를 변환하는 중입니다.";
+      const page = await pdf.getPage(pageNumber);
+      const viewport = page.getViewport({ scale: scale });
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.floor(viewport.width);
+      canvas.height = Math.floor(viewport.height);
+      await page.render({ canvasContext: canvas.getContext("2d"), viewport: viewport }).promise;
+      const url = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = file.name.replace(/\.pdf$/i, "") + "-page-" + pageNumber + ".png";
+      link.textContent = pageNumber + "페이지 PNG 다운로드";
+      downloads.appendChild(link);
+    }
+
+    renderStatus.textContent = pdf.numPages + "개 페이지를 PNG로 렌더링했습니다.";
+  } catch {
+    downloads.innerHTML = "";
+    renderStatus.textContent = "PDF를 변환하지 못했습니다. 파일 상태 또는 네트워크 연결을 확인하세요.";
+  } finally {
+    renderButton.disabled = false;
   }
-  renderStatus.textContent = pdf.numPages + "개 페이지를 PNG로 렌더링했습니다.";
 });

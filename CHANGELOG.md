@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-06-10 00:34 KST
+
+- Backed up `assets/js/pdf-image-tools.js` and `CHANGELOG.md` in `.backups/2026-06-10_0034/`.
+- Changed PDF.js loading from an unhandled static import to a reusable on-demand import.
+- Added PDF conversion progress, disabled-button protection, and a visible recovery message for CDN, file-read, parsing, or rendering failures.
+
 ## 2026-06-10 00:31 KST
 
 - Backed up `format-converter.html` and `CHANGELOG.md` in `.backups/2026-06-10_0031/`.
