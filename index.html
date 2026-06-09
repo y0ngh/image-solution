@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Solution | 이미지 형식 변환 및 크기 조절</title>
+    <meta name="description" content="Image Solution는 JPG, PNG, WebP 이미지를 브라우저에서 원하는 형식으로 변환하고, 너비와 높이를 조절한 뒤 다운로드할 수 있는 무료 정적 이미지 도구입니다.">
+    <meta name="keywords" content="이미지 형식 변환, JPG PNG 변환, PNG JPG 변환, WebP 변환, 이미지 크기 변경, 이미지 리사이즈">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Image Solution">
+    <meta property="og:description" content="서버 업로드 없이 JPG, PNG, WebP 형식을 변환하고 이미지 크기를 조절하세요.">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Solution",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "description": "브라우저에서 JPG, PNG, WebP 이미지 형식을 변환하고 이미지 크기를 조절하는 정적 웹 도구입니다.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "KRW"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-menubar" aria-label="사이트 메뉴">
+      <a class="brand" href="index.html" aria-label="Image Solution 홈">
+        <span class="apple-dot" aria-hidden="true"></span>
+        <span>Image Solution</span>
+      </a>
+      <nav class="menu-groups" aria-label="주요 메뉴">
+        <button class="menu-trigger" id="side-menu-toggle" type="button" aria-expanded="false" aria-controls="side-menu">메뉴</button>
+      </nav>
+    </header>
+
+    <div class="side-tab-overlay" id="side-tab-overlay" hidden></div>
+    <aside class="side-tab" id="side-menu" aria-labelledby="side-menu-title" aria-hidden="false">
+      <div class="side-tab-head">
+        <div>
+          <p class="eyebrow">Functions</p>
+          <h2 id="side-menu-title">사용 가능한 기능</h2>
+        </div>
+        <button class="side-close" id="side-menu-close" type="button" aria-label="메뉴 닫기">×</button>
+      </div>
+      <nav class="side-tab-list" aria-label="기능 목록">
+        <a href="features.html">
+          <strong>기능 소개</strong>
+          <span>제공 중인 전체 기능을 확인합니다.</span>
+        </a>
+        <a href="index.html"><strong>이미지 형식 변환</strong><span>JPG, PNG, WebP 형식을 바꾸고 크기를 조절합니다.</span></a>
+        <a href="image-compress.html">
+          <strong>이미지 압축</strong>
+          <span>목표 용량과 품질을 정해 JPG/WebP로 줄입니다.</span>
+        </a>
+        <a href="image-edit.html">
+          <strong>이미지 회전 및 크롭</strong>
+          <span>기본 편집 후 새 이미지로 저장합니다.</span>
+        </a>
+        <a href="watermark.html">
+          <strong>워터마크 추가</strong>
+          <span>텍스트 워터마크를 이미지 위에 넣습니다.</span>
+        </a>
+        <a href="redact-screenshot.html">
+          <strong>민감정보 가리기</strong>
+          <span>스크린샷의 개인정보 영역을 박스로 가립니다.</span>
+        </a>
+        <a href="background-remove.html">
+          <strong>배경 제거</strong>
+          <span>선택한 배경색을 투명하게 제거합니다.</span>
+        </a>
+        <a href="screenshot-merge.html">
+          <strong>스크린샷 합치기</strong>
+          <span>여러 이미지를 가로, 세로, 행과 열 레이아웃으로 합칩니다.</span>
+        </a>
+        <a href="pdf-image-tools.html">
+          <strong>PDF 이미지 도구</strong>
+          <span>이미지를 PDF로 묶고 PDF 페이지를 PNG로 변환합니다.</span>
+        </a>
+        <a href="batch-image-tools.html">
+          <strong>일괄 이미지 처리</strong>
+          <span>여러 이미지를 한 번에 리사이즈하고 변환합니다.</span>
+        </a>
+        <a href="data-tools.html">
+          <strong>JSON CSV 변환</strong>
+          <span>JSON을 CSV로, CSV를 JSON으로 변환합니다.</span>
+        </a>
+        <a href="receipt-tools.html">
+          <strong>영수증 도구</strong>
+          <span>영수증 텍스트 CSV와 식사 영수증 PDF를 만듭니다.</span>
+        </a>
+        <a href="privacy.html">
+          <strong>개인정보처리방침</strong>
+          <span>파일과 입력값 처리 방식을 확인합니다.</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero-tool" aria-labelledby="main-title">
+        <div class="window-shell" role="region" aria-label="이미지 변환 도구">
+          <div class="window-titlebar">
+            <div class="traffic-lights" aria-hidden="true">
+              <span class="traffic red"></span>
+              <span class="traffic yellow"></span>
+              <span class="traffic green"></span>
+            </div>
+            <p>Image Converter</p>
+            <span class="titlebar-spacer" aria-hidden="true"></span>
+          </div>
+
+          <div class="window-content">
+            <div class="tool-copy">
+              <p class="eyebrow">Client-side Image Converter</p>
+              <h1 id="main-title">Image Solution</h1>
+              <p>
+                JPG, PNG, WebP 이미지를 원하는 형식으로 변환하고 업로드 이미지의 크기를 조절하는 브라우저 기반 이미지 도구입니다.
+                너비와 높이를 직접 입력해 이미지 크기를 변경할 수 있어 블로그, 문서, 상품 이미지, 썸네일 제작에 필요한 기본 편집을 빠르게 처리할 수 있습니다.
+              </p>
+            </div>
+
+            <div class="tool-grid">
+              <section class="upload-panel" aria-labelledby="upload-title">
+                <h2 id="upload-title">이미지 추가</h2>
+                <label class="drop-zone" for="image-input" id="drop-zone">
+                  <input id="image-input" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
+                  <span class="upload-icon" aria-hidden="true">IMG</span>
+                  <strong>JPG, PNG, WebP 파일을 선택하거나 여기에 놓으세요</strong>
+                  <small>선택한 이미지는 서버로 전송되지 않고 현재 브라우저에서만 처리됩니다.</small>
+                </label>
+                <p class="status" id="status-message" role="status">아직 선택된 이미지가 없습니다.</p>
+              </section>
+
+              <section class="preview-panel" aria-labelledby="preview-title">
+                <h2 id="preview-title">미리보기</h2>
+                <div class="preview-frame">
+                  <img id="preview-image" alt="업로드한 이미지 미리보기" hidden>
+                  <div class="empty-preview" id="empty-preview">
+                    <span aria-hidden="true"></span>
+                    <p>이미지를 추가하면 미리보기가 표시됩니다.</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <section class="controls" id="resize-controls" aria-labelledby="resize-title">
+              <div>
+                <p class="eyebrow">Resize</p>
+                <h2 id="resize-title">업로드 이미지 크기 변경</h2>
+                <p>
+                  원본 비율 유지를 켠 상태에서 너비 또는 높이만 바꾸면 나머지 값이 자동으로 계산됩니다.
+                  출력 형식과 크기를 설정한 뒤 변환 버튼을 누르면 새 이미지 파일이 생성됩니다.
+                </p>
+              </div>
+              <form class="resize-form" id="resize-form">
+                <label>
+                  <span>너비(px)</span>
+                  <input id="width-input" type="number" min="1" step="1" placeholder="예: 1200" disabled>
+                </label>
+                <label>
+                  <span>높이(px)</span>
+                  <input id="height-input" type="number" min="1" step="1" placeholder="예: 800" disabled>
+                </label>
+                <label>
+                  <span>출력 형식</span>
+                  <select id="output-format">
+                    <option value="image/png">PNG</option>
+                    <option value="image/jpeg">JPG</option>
+                    <option value="image/webp">WebP</option>
+                  </select>
+                </label>
+                <label>
+                  <span>품질(%)</span>
+                  <input id="output-quality" type="number" min="1" max="100" value="90">
+                </label>
+                <label class="check-row">
+                  <input id="ratio-lock" type="checkbox" checked>
+                  <span>원본 비율 유지</span>
+                </label>
+                <div class="button-row">
+                  <button class="secondary-button" type="button" id="reset-button" disabled>원본 크기</button>
+                  <button class="primary-button" type="submit" id="convert-button" disabled>PNG로 변환</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-band light" aria-labelledby="feature-title">
+        <div class="content-wrap two-column">
+          <div>
+            <h2 id="feature-title">기능 소개</h2>
+            <p>
+              첫 번째 기능은 JPG, PNG, WebP 이미지 형식을 서로 변환하고 크기를 조절하는 것입니다.
+              추가로 이미지 압축, 자르기/회전/뒤집기, 워터마크 추가, 민감정보 가리기, 배경 제거, 스크린샷 합치기, PDF 이미지 변환, 일괄 처리, JSON CSV 변환, 영수증 도구를 제공합니다.
+              모든 기능은 정적 페이지에서 실행되도록 구성했습니다.
+            </p>
+          </div>
+          <ul class="feature-list">
+            <li>JPG, PNG, WebP 파일 선택 및 드래그 앤 드롭 업로드</li>
+            <li>원본 이미지 너비와 높이 자동 표시</li>
+            <li>비율 유지 기반 이미지 크기 변경</li>
+            <li>PNG, JPG, WebP 파일 생성 및 즉시 다운로드</li>
+            <li>이미지 압축</li>
+            <li>이미지 자르기, 회전, 뒤집기</li>
+            <li>워터마크 추가, 민감정보 가리기, 배경 제거</li>
+            <li>JSON CSV 양방향 변환</li>
+            <li>스크린샷 가로, 세로, 행과 열 레이아웃 합치기</li>
+            <li>이미지 PDF 묶기와 PDF 페이지 PNG 변환</li>
+            <li>여러 이미지 일괄 처리</li>
+            <li>영수증 텍스트 CSV 생성 및 식사 영수증 PDF 저장</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-band" aria-labelledby="privacy-title">
+        <div class="content-wrap">
+          <h2 id="privacy-title">개인정보처리방침 요약</h2>
+          <p>
+            이 사이트의 이미지 변환 기능은 사용자의 브라우저에서 실행됩니다.
+            현재 구현은 이미지 파일을 외부 서버로 업로드하거나 저장하지 않으며, 변환 결과도 사용자의 기기에서 직접 다운로드됩니다.
+            광고 심사와 서비스 운영을 위해 향후 분석 도구 또는 광고 스크립트가 추가될 수 있으며, 그 경우 개인정보처리방침 페이지에 수집 항목과 목적을 명확히 갱신합니다.
+          </p>
+          <a class="text-link" href="privacy.html">개인정보처리방침 전체 보기</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Image Solution. 브라우저 기반 정적 이미지 변환 도구.</p>
+      <nav aria-label="푸터 메뉴">
+        <a href="features.html">기능 소개</a>
+        <a href="image-compress.html">이미지 압축</a>
+        <a href="index.html">이미지 형식 변환</a>
+        <a href="image-edit.html">이미지 편집</a>
+        <a href="data-tools.html">JSON CSV 변환</a>
+        <a href="screenshot-merge.html">스크린샷 합치기</a>
+        <a href="pdf-image-tools.html">PDF 이미지 도구</a>
+        <a href="batch-image-tools.html">일괄 처리</a>
+        <a href="receipt-tools.html">영수증 도구</a>
+        <a href="privacy.html">개인정보처리방침</a>
+      </nav>
+    </footer>
+
+    <script src="assets/js/app.js" defer></script>
+  </body>
+</html>

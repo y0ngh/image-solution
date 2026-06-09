@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSON CSV 변환 | Image Solution</title>
+    <meta name="description" content="JSON을 CSV로, CSV를 JSON으로 브라우저에서 바로 변환하고 결과 파일을 다운로드할 수 있는 정적 데이터 변환 도구입니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <header class="site-menubar" aria-label="사이트 메뉴">
+      <a class="brand" href="index.html" aria-label="Image Solution 홈">
+        <span class="apple-dot" aria-hidden="true"></span>
+        <span>Image Solution</span>
+      </a>
+      <nav class="menu-groups" aria-label="주요 메뉴">
+        <button class="menu-trigger" id="side-menu-toggle" type="button" aria-expanded="false" aria-controls="side-menu">메뉴</button>
+      </nav>
+    </header>
+
+    <div class="side-tab-overlay" id="side-tab-overlay" hidden></div>
+    <aside class="side-tab" id="side-menu" aria-labelledby="side-menu-title" aria-hidden="false">
+      <div class="side-tab-head">
+        <div>
+          <p class="eyebrow">Functions</p>
+          <h2 id="side-menu-title">사용 가능한 기능</h2>
+        </div>
+        <button class="side-close" id="side-menu-close" type="button" aria-label="메뉴 닫기">×</button>
+      </div>
+      <nav class="side-tab-list" aria-label="기능 목록">
+        <a href="features.html">
+          <strong>기능 소개</strong>
+          <span>제공 중인 전체 기능을 확인합니다.</span>
+        </a>
+        <a href="index.html"><strong>이미지 형식 변환</strong><span>JPG, PNG, WebP 형식을 바꾸고 크기를 조절합니다.</span></a>
+        <a href="image-compress.html">
+          <strong>이미지 압축</strong>
+          <span>목표 용량과 품질을 정해 JPG/WebP로 줄입니다.</span>
+        </a>
+        <a href="image-edit.html">
+          <strong>이미지 회전 및 크롭</strong>
+          <span>기본 편집 후 새 이미지로 저장합니다.</span>
+        </a>
+        <a href="watermark.html">
+          <strong>워터마크 추가</strong>
+          <span>텍스트 워터마크를 이미지 위에 넣습니다.</span>
+        </a>
+        <a href="redact-screenshot.html">
+          <strong>민감정보 가리기</strong>
+          <span>스크린샷의 개인정보 영역을 박스로 가립니다.</span>
+        </a>
+        <a href="background-remove.html">
+          <strong>배경 제거</strong>
+          <span>선택한 배경색을 투명하게 제거합니다.</span>
+        </a>
+        <a href="screenshot-merge.html">
+          <strong>스크린샷 합치기</strong>
+          <span>여러 이미지를 가로, 세로, 행과 열 레이아웃으로 합칩니다.</span>
+        </a>
+        <a href="pdf-image-tools.html">
+          <strong>PDF 이미지 도구</strong>
+          <span>이미지를 PDF로 묶고 PDF 페이지를 PNG로 변환합니다.</span>
+        </a>
+        <a href="batch-image-tools.html">
+          <strong>일괄 이미지 처리</strong>
+          <span>여러 이미지를 한 번에 리사이즈하고 변환합니다.</span>
+        </a>
+        <a href="data-tools.html">
+          <strong>JSON CSV 변환</strong>
+          <span>JSON을 CSV로, CSV를 JSON으로 변환합니다.</span>
+        </a>
+        <a href="receipt-tools.html">
+          <strong>영수증 도구</strong>
+          <span>영수증 텍스트 CSV와 식사 영수증 PDF를 만듭니다.</span>
+        </a>
+        <a href="privacy.html">
+          <strong>개인정보처리방침</strong>
+          <span>파일과 입력값 처리 방식을 확인합니다.</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="subpage">
+      <article class="content-wrap article tool-workbench">
+        <div>
+          <p class="eyebrow">Data Converter</p>
+          <h1>JSON CSV 변환</h1>
+          <p>
+            JSON 배열 또는 객체를 CSV로 변환하고, CSV 데이터를 JSON 배열로 다시 변환합니다.
+            입력 데이터는 서버로 전송되지 않고 현재 브라우저에서만 처리됩니다.
+          </p>
+        </div>
+
+        <section class="tool-card" aria-labelledby="json-csv-title">
+          <h2 id="json-csv-title">변환기</h2>
+          <div class="converter-grid">
+            <div class="field-stack">
+              <label for="source-data">입력</label>
+              <textarea id="source-data" spellcheck="false" placeholder='예: [{"name":"김밥","price":4500}]'></textarea>
+            </div>
+            <div class="field-stack">
+              <label for="result-data">결과</label>
+              <textarea id="result-data" spellcheck="false" readonly></textarea>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <button type="button" id="json-to-csv">JSON을 CSV로</button>
+            <button type="button" id="csv-to-json" class="secondary-button">CSV를 JSON으로</button>
+            <button type="button" id="download-result" class="secondary-button">결과 다운로드</button>
+            <button type="button" id="clear-data" class="secondary-button">비우기</button>
+          </div>
+          <p class="tool-status" id="data-status" role="status">변환할 데이터를 입력하세요.</p>
+        </section>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 Image Solution.</p>
+      <nav aria-label="푸터 메뉴">
+        <a href="index.html">이미지 변환</a>
+        <a href="screenshot-merge.html">스크린샷 합치기</a>
+        <a href="receipt-tools.html">영수증 도구</a>
+        <a href="privacy.html">개인정보처리방침</a>
+      </nav>
+    </footer>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/data-tools.js" defer></script>
+  </body>
+</html>
