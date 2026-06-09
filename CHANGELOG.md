@@ -1,5 +1,12 @@
 # Change Log
 
+## 2026-06-09 23:46 KST
+
+- Backed up all previously existing affected HTML files and `CHANGELOG.md` in `.backups/2026-06-09_2346/`.
+- Added `contact.html` with a public GitHub Issues contact link and safe-submission guidance.
+- Added `사이트 소개` and `문의` links to the shared side menu on every page.
+- Removed advertising and Google AdSense guidance from the home-page privacy summary and privacy policy.
+
 ## 2026-06-09 23:28 KST
 
 - Backed up `CHANGELOG.md` in `.backups/2026-06-09_2328/`.
