@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-06-09 23:50 KST
+
+- Backed up `index.html`, `assets/css/styles.css`, and `CHANGELOG.md` in `.backups/2026-06-09_2350/`.
+- Replaced the home-page feature introduction with concise Image Solution service copy.
+- Removed the unrelated feature checklist and expanded the introduction to the full content width above the privacy summary.
+
 ## 2026-06-09 23:46 KST
 
 - Backed up all previously existing affected HTML files and `CHANGELOG.md` in `.backups/2026-06-09_2346/`.

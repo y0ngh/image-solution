@@ -525,27 +525,6 @@ p {
   margin: 0 auto;
 }
 
-.two-column {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
-  gap: 34px;
-}
-
-.feature-list {
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.feature-list li {
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: white;
-}
-
 .text-link {
   color: var(--blue);
   font-weight: 800;
@@ -981,7 +960,6 @@ p {
 
   .tool-grid,
   .controls,
-  .two-column,
   .converter-grid,
   .inline-fields,
   .merge-options {
