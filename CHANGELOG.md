@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-06-10 00:31 KST
+
+- Backed up `format-converter.html` and `CHANGELOG.md` in `.backups/2026-06-10_0031/`.
+- Changed the legacy format-converter redirect page to `noindex, follow` so it is not indexed as a duplicate of the home-page converter.
+- Removed the relative canonical URL pending confirmation of the final Cloudflare public domain.
+
 ## 2026-06-10 00:26 KST
 
 - Backed up the affected content pages and `CHANGELOG.md` in `.backups/2026-06-10_0026/`.
