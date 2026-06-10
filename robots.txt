@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://image-solution.imagesolution.workers.dev/sitemap.xml

@@ -1,5 +1,12 @@
 # Change Log
 
+## 2026-06-10 10:04 KST
+
+- Backed up all indexed HTML pages, `robots.txt`, and `CHANGELOG.md` in `.backups/2026-06-10_1004/`.
+- Added absolute canonical URLs for the confirmed Cloudflare Workers public domain to all 15 indexable pages.
+- Added `sitemap.xml` with the 15 indexable content URLs and linked it from `robots.txt`.
+- Kept the legacy `format-converter.html` redirect out of the sitemap because it is marked `noindex`.
+
 ## 2026-06-10 00:34 KST
 
 - Backed up `assets/js/pdf-image-tools.js` and `CHANGELOG.md` in `.backups/2026-06-10_0034/`.
